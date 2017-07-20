@@ -3,11 +3,16 @@ function ToDo(task, due, priority) {
   this.task = task;
   this.due = due;
   this.priority = priority;
+  this.completed  = false;
 }
 
-// ToDo.prototype.everythingList = function() {
-//   return this.task + this.due + this.priority;
-// }
+ToDo.prototype.done = function() {
+  if (this.completed === false) {
+    this.completed === true
+  } else {
+    this.completed === false
+  }
+}
 
 //UI logic
 $(document).ready(function() {
@@ -23,6 +28,8 @@ $(document).ready(function() {
     $("#output ul").append("<li><span class='task'>" + newToDo.task + "</span></li>");
     $("#output ul").append("<li>" + newToDo.due + "</li>");
     $("#output ul").append("<li>" + newToDo.priority + "</li>");
+    $(".comp").append("Completed");
+
     $("#output p").show();
 
     $("input#new-task").val("");
@@ -30,6 +37,11 @@ $(document).ready(function() {
     $("select#priority").val("");
 
 
+
+  });
+
+  $(".comp").click(function(){
+    $(".comp").css("color", "green");
 
   });
 });
