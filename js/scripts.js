@@ -8,9 +8,9 @@ function ToDo(task, due, priority) {
 
 ToDo.prototype.done = function() {
   if (this.completed === false) {
-    this.completed === true
+    this.completed = true
   } else {
-    this.completed === false
+    this.completed = false
   }
 }
 
@@ -28,7 +28,7 @@ $(document).ready(function() {
     $("#output ul").append("<li><span class='task'>" + newToDo.task + "</span></li>");
     $("#output ul").append("<li>" + newToDo.due + "</li>");
     $("#output ul").append("<li>" + newToDo.priority + "</li>");
-    $(".comp").append("Completed");
+    $(".comp").append("Click to mark as completed");
 
     $("#output p").show();
 
@@ -36,12 +36,13 @@ $(document).ready(function() {
     $("input#due-date").val("");
     $("select#priority").val("");
 
+    $(".comp").click(function(){
+        newToDo.done();
+        console.log(newToDo.completed);
+        $(this).text("COMPLETED");
 
+      // if (this.completed === true)
 
   });
-
-  $(".comp").click(function(){
-    $(".comp").css("color", "green");
-
   });
 });
