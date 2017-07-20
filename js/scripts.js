@@ -38,8 +38,13 @@ $(document).ready(function() {
 
     $(".comp").click(function(){
         newToDo.done();
-        console.log(newToDo.completed);
+        if ( newToDo.completed === true) {
         $(this).text("COMPLETED");
+      }
+
+      if (newToDo.completed === false) {
+        $(this).text("Click to mark as completed");
+      }
 
       // if (this.completed === true)
 
